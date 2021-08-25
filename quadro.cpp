@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <cmath>
 
-void solvequadeq(double a, double b, double c, double* x1, double* x2,int* err) {
+void solvequadeq(double a, double b, double c, double* x1, double* x2,bool* err) {
     if (a != 0) {
         double d = 0;
         d = b*b - 4*a*c;
@@ -27,7 +27,7 @@ void solvequadeq(double a, double b, double c, double* x1, double* x2,int* err) 
 
 int main(){
     double a = 0, b = 0, c = 0, x1 = 0, x2 = 0;
-    int err = 0;
+    bool err = 0;
     printf("Solve quadratic equation \n");
     printf("Please enter coefficients of the equation \"a b c \" \n");
     scanf("%lf %lf %lf",&a,&b,&c);
