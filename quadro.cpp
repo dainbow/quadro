@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <cmath>
 void solve(double a, double b, double c){
-    double d = 0;
     if (a != 0){
+            double d = 0;
             d = b*b - 4*a*c;
             if (d > 0)
                 printf("The equation has 2 solutions: %3f and %3f",(-b + sqrt(d))/(2*a),(-b - sqrt(d))/(2*a));
