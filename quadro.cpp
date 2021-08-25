@@ -8,7 +8,7 @@ int main(){
     scanf("%lf %lf %lf",&a,&b,&c);
     d = b*b - 4*a*c;
     if (d > 0)
-        printf("The equation has 2 solutions: %3f è %3f",(-b + sqrt(d))/(2*a),(-b - sqrt(d))/(2*a));
+        printf("The equation has 2 solutions: %3f and %3f",(-b + sqrt(d))/(2*a),(-b - sqrt(d))/(2*a));
     else if (d == 0)
         printf("The equation has 1 solution: %3f",(-b)/(2*a));
     else
