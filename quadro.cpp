@@ -4,24 +4,23 @@
 #include <cassert>
 
 const int INF_ROOTS = -1;
-const double presicion = 0.0001;
+const double PRECISION = 0.0001;
 
 bool IsApproxZero(double num);
-void testIsApproxZero(double num, bool correctAnswer);
+void TestIsApproxZero(double num, bool correctAnswer);
 int SolveLinear(double a, double b, double* x1);
-void testSolveLinear(double a, double b, double* x1, int CorrectAnswer, double CorrectX1);
-void testSolveLinear(double a, double b, double* x1, int CorrectAnswer);
+void TestSolveLinear(double a, double b, double* x1, int correctRootsCount, double correctX1);
+void TestSolveLinear(double a, double b, double* x1, int correctRootsCount);
 int SolveQuad(double a, double b, double c, double* x1, double* x2);
-void testSolveQuad(double a, double b, double c, double* x1, double* x2, int CorrectAnswer, double CorrectX1, double CorrectX2);
-void testSolveQuad(double a, double b, double c, double* x1, double* x2, int CorrectAnswer, double CorrectX1);
-void testSolveQuad(double a, double b, double c, double* x1, double* x2, int CorrectAnswer);
-void printAnswer(int rootsCount, double* x1, double* x2);
+void TestSolveQuad(double a, double b, double c, double* x1, double* x2, int correctRootsCount, double correctX1, double correctX2);
+void TestSolveQuad(double a, double b, double c, double* x1, double* x2, int correctRootsCount, double correctX1);
+void TestSolveQuad(double a, double b, double c, double* x1, double* x2, int correctRootsCount);
+void PrintAnswer(int rootsCount, double* x1, double* x2);
 void FlushInput();
 void ReadCoeffs(double* a, double* b, double* c);
 void TestAll();
 
-int main(){
-
+int main() {
     TestAll();
 
     printf("Solve quadratic equation\n");
@@ -34,7 +33,7 @@ int main(){
     double x1 = 0, x2 = 0;
     int rootsCount = SolveQuad(a, b, c, &x1, &x2);
 
-    printAnswer(rootsCount, &x1, &x2);
+    PrintAnswer(rootsCount, &x1, &x2);
 
     return 0;
 }
@@ -53,21 +52,24 @@ int main(){
 bool IsApproxZero(double num) {
     assert(isfinite(num));
 
-    return -presicion <= num && num <= presicion;
+    return -PRECISION <= num && num <= PRECISION;
 }
 
-void testIsApproxZero(double num, bool correctAnswer) {
+//--------------------------------------------------------------------
+//! Tests IsApproxZero function
+//!
+//! @param [in] num "num" parameter of IsApproxZero function
+//! @param [in] correctAnswer correct return of IsApproxZero(num)
+//!
+//--------------------------------------------------------------------
+
+void TestIsApproxZero(double num, bool correctAnswer) {
     bool answer = IsApproxZero(num);
-    char* result;
+    const char* isTestOk = nullptr;
 
-    if (answer == correctAnswer) {
-        result = "correct";
-    }
-    else {
-        result = "wrong";
-    }
+    isTestOk = (answer == correctAnswer) ? "correct" : "wrong";
 
-    printf("[%s] IsApproxZero(%lf) = %d, expected %d\n", result, num, answer, correctAnswer);
+    printf("[%s] IsApproxZero(%lf) = %d, expected %d\n", isTestOk, num, answer, correctAnswer);
 }
 
 //--------------------------------------------------------------------
@@ -98,32 +100,43 @@ int SolveLinear(double a, double b, double* x1) {
     }
 }
 
-void testSolveLinear(double a, double b, double* x1, int CorrectAnswer, double CorrectX1) {
-    int answer = SolveLinear(a, b, x1);
-    char* result;
+//--------------------------------------------------------------------
+//! Tests SolveLinear function (in case of 1 root)
+//!
+//! @param [in] a "a" parameter of SolveLinear function
+//! @param [in] b "b" parameter of SolveLinear function
+//! @param [out] x1 pointer to the root (if it exists)
+//! @param [in] correctRootsCount correct count of roots of equation
+//! @param [in] correctX1 correct 1st root
+//!
+//--------------------------------------------------------------------
 
-    if (answer == CorrectAnswer && *x1 == CorrectX1) {
-        result = "correct";
-    }
-    else {
-        result = "wrong";
-    }
+void TestSolveLinear(double a, double b, double* x1, int correctRootsCount, double correctX1) {
+    int rootsCount = SolveLinear(a, b, x1);
+    const char* isTestOk = nullptr;
 
-    printf("[%s] SolveLinear(%lf, %lf, &x1) = %d; x1 = %lf, expected %d; x1 = %lf\n", result, a, b, answer, *x1, CorrectAnswer, CorrectX1);
+    isTestOk = (rootsCount == correctRootsCount && *x1 == correctX1) ? "correct" : "wrong";
+
+    printf("[%s] SolveLinear(%lf, %lf, &x1) = %d; x1 = %lf, expected %d; x1 = %lf\n", isTestOk, a, b, rootsCount, *x1, correctRootsCount, correctX1);
 }
 
-void testSolveLinear(double a, double b, double* x1, int CorrectAnswer) {
-    int answer = SolveLinear(a, b, x1);
-    char* result;
+//--------------------------------------------------------------------
+//! Tests SolveLinear function (in case of 0 roots or INF_ROOTS)
+//!
+//! @param [in] a "a" parameter of SolveLinear function
+//! @param [in] b "b" parameter of SolveLinear function
+//! @param [out] x1 pointer to the root (if it exists)
+//! @param [in] correctRootsCount correct count of roots of equation
+//!
+//--------------------------------------------------------------------
 
-    if (answer == CorrectAnswer) {
-        result = "correct";
-    }
-    else {
-        result = "wrong";
-    }
+void TestSolveLinear(double a, double b, double* x1, int correctRootsCount) {
+    int rootsCount = SolveLinear(a, b, x1);
+    const char* isTestOk = nullptr;
 
-    printf("[%s] SolveLinear(%lf, %lf, &x1) = %d, expected %d\n", result, a, b, answer, CorrectAnswer);
+    isTestOk = (rootsCount == correctRootsCount) ? "correct" : "wrong";
+
+    printf("[%s] SolveLinear(%lf, %lf, &x1) = %d, expected %d\n", isTestOk, a, b, rootsCount, correctRootsCount);
 }
 
 //--------------------------------------------------------------------
@@ -174,46 +187,70 @@ int SolveQuad(double a, double b, double c, double* x1, double* x2) {
     }
 }
 
-void testSolveQuad(double a, double b, double c, double* x1, double* x2, int CorrectAnswer, double CorrectX1, double CorrectX2) {
-    int answer = SolveQuad(a, b, c, x1, x2);
-    char* result;
+//--------------------------------------------------------------------
+//! Tests SolveQuad function (in case of 2 roots)
+//!
+//! @param [in] a "a" parameter of SolveQuad function
+//! @param [in] b "b" parameter of SolveQuad function
+//! @param [in] c "c" parameter of SolveQuad function
+//! @param [out] x1 pointer to the 1st root
+//! @param [out] x2 pointer to the 2nd root
+//! @param [in] correctRootsCount correct count of roots of equation
+//! @param [in] correctX1 correct 1st root
+//! @param [in] correctX2 correct 2nd root
+//!
+//--------------------------------------------------------------------
 
-    if (answer == CorrectAnswer && ((*x1 == CorrectX1 && *x2 == CorrectX2) || (*x2 == CorrectX1 && *x1 == CorrectX2))) {
-        result = "correct";
-    }
-    else {
-        result = "wrong";
-    }
+void TestSolveQuad(double a, double b, double c, double* x1, double* x2, int correctRootsCount, double correctX1, double correctX2) {
+    int rootsCount = SolveQuad(a, b, c, x1, x2);
+    const char* isTestOk = nullptr;
 
-    printf("[%s] SolveQuad(%lf, %lf, %lf, &x1, &x2) = %d; x1 = %lf; x2 = %lf, expected %d; x1 = %lf; x2 = %lf\n", result, a, b, c, answer, *x1, *x2, CorrectAnswer, CorrectX1, CorrectX2);
+    isTestOk = (rootsCount == correctRootsCount && ((*x1 == correctX1 && *x2 == correctX2) || (*x2 == correctX1 && *x1 == correctX2))) ? "correct" : "wrong";
+
+    printf("[%s] SolveQuad(%lf, %lf, %lf, &x1, &x2) = %d; x1 = %lf; x2 = %lf, expected %d; x1 = %lf; x2 = %lf\n", isTestOk, a, b, c, rootsCount, *x1, *x2, correctRootsCount, correctX1, correctX2);
 }
 
-void testSolveQuad(double a, double b, double c, double* x1, double* x2, int CorrectAnswer, double CorrectX1) {
-    int answer = SolveQuad(a, b, c, x1, x2);
-    char* result;
+//--------------------------------------------------------------------
+//! Tests SolveQuad function (in case of 1 root)
+//!
+//! @param [in] a "a" parameter of SolveQuad function
+//! @param [in] b "b" parameter of SolveQuad function
+//! @param [in] c "c" parameter of SolveQuad function
+//! @param [out] x1 pointer to the 1st root (if it exists)
+//! @param [out] x2 pointer to the 2nd root (if it exists)
+//! @param [in] correctRootsCount correct count of roots of equation
+//! @param [in] correctX1 correct 1st root
+//!
+//--------------------------------------------------------------------
 
-    if (answer == CorrectAnswer && *x1 == CorrectX1) {
-        result = "correct";
-    }
-    else {
-        result = "wrong";
-    }
+void TestSolveQuad(double a, double b, double c, double* x1, double* x2, int correctRootsCount, double correctX1) {
+    int rootsCount = SolveQuad(a, b, c, x1, x2);
+    const char* isTestOk = nullptr;
 
-    printf("[%s] SolveQuad(%lf, %lf, %lf, &x1, &x2) = %d; x1 = %lf, expected %d; x1 = %lf\n", result, a, b, c, answer, *x1, CorrectAnswer, CorrectX1);
+    isTestOk = (rootsCount == correctRootsCount && *x1 == correctX1) ? "correct" : "wrong";
+
+    printf("[%s] SolveQuad(%lf, %lf, %lf, &x1, &x2) = %d; x1 = %lf, expected %d; x1 = %lf\n", isTestOk, a, b, c, rootsCount, *x1, correctRootsCount, correctX1);
 }
 
-void testSolveQuad(double a, double b, double c, double* x1, double* x2, int CorrectAnswer) {
-    int answer = SolveQuad(a, b, c, x1, x2);
-    char* result;
+//--------------------------------------------------------------------
+//! Tests SolveQuad function (in case of 0 roots or INF_ROOTS)
+//!
+//! @param [in] a "a" parameter of SolveQuad function
+//! @param [in] b "b" parameter of SolveQuad function
+//! @param [in] c "c" parameter of SolveQuad function
+//! @param [out] x1 pointer to the 1st root (if it exists)
+//! @param [out] x2 pointer to the 2nd root (if it exists)
+//! @param [in] correctRootsCount correct count of roots of equation
+//!
+//--------------------------------------------------------------------
 
-    if (answer == CorrectAnswer) {
-        result = "correct";
-    }
-    else {
-        result = "wrong";
-    }
+void TestSolveQuad(double a, double b, double c, double* x1, double* x2, int correctRootsCount) {
+    int rootsCount = SolveQuad(a, b, c, x1, x2);
+    const char* isTestOk = nullptr;
 
-    printf("[%s] SolveQuad(%lf, %lf, %lf, &x1, &x2) = %d, expected %d\n", result, a, b, c, answer, CorrectAnswer);
+    isTestOk = (rootsCount == correctRootsCount) ? "correct" : "wrong";
+
+    printf("[%s] SolveQuad(%lf, %lf, %lf, &x1, &x2) = %d, expected %d\n", isTestOk, a, b, c, rootsCount, correctRootsCount);
 }
 
 //--------------------------------------------------------------------
@@ -227,7 +264,7 @@ void testSolveQuad(double a, double b, double c, double* x1, double* x2, int Cor
 //!       prints "Error"
 //--------------------------------------------------------------------
 
-void printAnswer(int rootsCount, double* x1, double* x2) {
+void PrintAnswer(int rootsCount, double* x1, double* x2) {
     assert(isfinite(rootsCount));
 
     assert(x1 != nullptr);
@@ -284,22 +321,25 @@ void ReadCoeffs(double* a, double* b, double* c) {
     }
 }
 
+//--------------------------------------------------------------------
+//! Tests IsApproxZero, SolveLinear, SolveQuad functions
+//--------------------------------------------------------------------
 void TestAll() {
     double x1 = 0, x2 = 0;
 
-    testIsApproxZero(0.00001, true);
-    testIsApproxZero(0, true);
-    testIsApproxZero(0.001, false);
-    testIsApproxZero(-1, false);
+    TestIsApproxZero(0.00001, true);
+    TestIsApproxZero(0, true);
+    TestIsApproxZero(0.001, false);
+    TestIsApproxZero(-1, false);
 
-    testSolveLinear(2, -2, &x1, 1, 1);
-    testSolveLinear(0, 0, &x1, INF_ROOTS);
-    testSolveLinear(0, 1, &x1, 0);
+    TestSolveLinear(2, -2, &x1, 1, 1);
+    TestSolveLinear(0, 0, &x1, INF_ROOTS);
+    TestSolveLinear(0, 1, &x1, 0);
 
-    testSolveQuad(1,4,4,&x1,&x2,1,-2);
-    testSolveQuad(1,-9,20,&x1,&x2,2,4,5);
-    testSolveQuad(0,0,4,&x1,&x2,0);
-    testSolveQuad(0,0,0,&x1,&x2,INF_ROOTS);
+    TestSolveQuad(1,4,4,&x1,&x2,1,-2);
+    TestSolveQuad(1,-9,20,&x1,&x2,2,4,5);
+    TestSolveQuad(0,0,4,&x1,&x2,0);
+    TestSolveQuad(0,0,0,&x1,&x2,INF_ROOTS);
 }
 
 
