@@ -26,7 +26,8 @@ void TestDoubleCompare(const double num1, const double num2, const bool correctA
     bool answer = DoubleCompare(num1, num2);
     const char* isTestOk = (answer == correctAnswer) ? "correct" : "wrong";
 
-    printf("[%s] IsApproxZero(%lf,%lf) = %d, expected %d\n", isTestOk, num1, num2, answer, correctAnswer);
+    printf("[%s] IsApproxZero(%lf,%lf) = %d, expected %d\n",
+            isTestOk, num1, num2, answer, correctAnswer);
 }
 
 //--------------------------------------------------------------------
@@ -70,6 +71,7 @@ int SolveLinear(const double a, const double b, double* x1) {
 void TestSolveLinear(const double a, const double b, int correctRootsCount, ...) {
     double x1 = 0;
     int rootsCount = SolveLinear(a, b, &x1);
+
     switch (correctRootsCount) {
         case 1: {
             va_list args;
@@ -78,16 +80,19 @@ void TestSolveLinear(const double a, const double b, int correctRootsCount, ...)
             double correctX1 = va_arg(args, double);
             va_end(args);
 
-            const char* isTestOk = (DoubleCompare(rootsCount, correctRootsCount) && DoubleCompare(x1, correctX1)) ? "correct" : "wrong";
+            const char* isTestOk = (DoubleCompare(rootsCount, correctRootsCount) &&
+                                    DoubleCompare(x1, correctX1)) ? "correct" : "wrong";
 
-            printf("[%s] SolveLinear(%lf, %lf) = %d; x1 = %lf, expected %d; x1 = %g\n", isTestOk, a, b, rootsCount, x1, correctRootsCount, correctX1);
+            printf("[%s] SolveLinear(%lf, %lf) = %d; x1 = %lf, expected %d; x1 = %g\n",
+                    isTestOk, a, b, rootsCount, x1, correctRootsCount, correctX1);
             break;
         }
         case 0:
         case INF_ROOTS: {
             const char* isTestOk = DoubleCompare(rootsCount, correctRootsCount) ? "correct" : "wrong";
 
-            printf("[%s] SolveLinear(%lf, %lf) = %d, expected %d\n", isTestOk, a, b, rootsCount, correctRootsCount);
+            printf("[%s] SolveLinear(%lf, %lf) = %d, expected %d\n",
+                    isTestOk, a, b, rootsCount, correctRootsCount);
             break;
         }
         default:
@@ -177,8 +182,12 @@ void TestSolveQuad(const double a, const double b, const double c, const int cor
             double correctX2 = va_arg(args,double);
             va_end(args);
 
-            const char* isTestOk = (DoubleCompare(rootsCount, correctRootsCount) && ((DoubleCompare(x1, correctX1) && DoubleCompare(x2, correctX2)) || (DoubleCompare(x2, correctX1) && DoubleCompare(x1, correctX2)))) ? "correct" : "wrong";
-            printf("[%s] SolveQuad(%lf, %lf, %lf) = %d; x1 = %lf; x2 = %lf, expected %d; x1 = %lf; x2 = %lf\n", isTestOk, a, b, c, rootsCount, x1, x2, correctRootsCount, correctX1, correctX2);
+            const char* isTestOk = (DoubleCompare(rootsCount, correctRootsCount) &&
+                                    ((DoubleCompare(x1, correctX1) && DoubleCompare(x2, correctX2)) ||
+                                    (DoubleCompare(x2, correctX1) && DoubleCompare(x1, correctX2)))) ? "correct" : "wrong";
+
+            printf("[%s] SolveQuad(%lf, %lf, %lf) = %d; x1 = %lf; x2 = %lf, expected %d; x1 = %lf; x2 = %lf\n",
+                    isTestOk, a, b, c, rootsCount, x1, x2, correctRootsCount, correctX1, correctX2);
             break;
         }
         case 1:{
@@ -188,7 +197,9 @@ void TestSolveQuad(const double a, const double b, const double c, const int cor
             double correctX1 = va_arg(args,double);
             va_end(args);
 
-            const char* isTestOk = (DoubleCompare(rootsCount, correctRootsCount) && DoubleCompare(x1, correctX1)) ? "correct" : "wrong";
+            const char* isTestOk = (DoubleCompare(rootsCount, correctRootsCount) &&
+                                    DoubleCompare(x1, correctX1)) ? "correct" : "wrong";
+
             printf("[%s] SolveQuad(%lf, %lf, %lf) = %d; x1 = %lf, expected %d; x1 = %lf\n", isTestOk, a, b, c, rootsCount, x1, correctRootsCount, correctX1);
             break;
         }
