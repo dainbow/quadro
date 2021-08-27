@@ -5,19 +5,11 @@ This program solves quadratic equations
 ##### For Windows users:
 Download quadro.exe in \bin folder.
 ##### For Linux users:
-<<<<<<< Updated upstream
-- Place main.cpp Solve.cpp io.cpp UtilFunctions.cpp Test.cpp in one folder. 
-- Install g++.
-- Open terminal in this folder
-```
-$ g++ main.cpp Solve.cpp io.cpp UtilFunctions.cpp Test.cpp -o Quadro
-=======
 - Place main.cpp Solve.cpp Solve.h Utilities.cpp Utilities.h Test.cpp Test.h in one folder. 
 - Install g++.
 - Open terminal in this folder
 ```
 $ g++ main.cpp Solve.cpp Solve.h Utilities.cpp Utilities.h Test.cpp Test.h -o Quadro
->>>>>>> Stashed changes
 $ ./Quadro"
 ```
 ## Usage
