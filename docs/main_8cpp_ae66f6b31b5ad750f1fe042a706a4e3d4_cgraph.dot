@@ -6,9 +6,9 @@ digraph "main"
   rankdir="LR";
   Node1 [label="main",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="PrintAnswer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_util_functions_8cpp.html#a6b7581894a8b7734c3552aee57bd8782",tooltip=" "];
+  Node2 [label="PrintAnswer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$io_8cpp.html#a6b7581894a8b7734c3552aee57bd8782",tooltip=" "];
   Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="ReadCoeffs",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_util_functions_8cpp.html#aee7e8ec4833d53341f09285828c4ca6b",tooltip=" "];
+  Node3 [label="ReadCoeffs",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$io_8cpp.html#aee7e8ec4833d53341f09285828c4ca6b",tooltip=" "];
   Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node4 [label="FlushInput",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_util_functions_8cpp.html#af760698300b1d9d04708ca26bafb52e6",tooltip="Clear stdin."];
   Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];

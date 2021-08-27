@@ -22,9 +22,13 @@
       <LI><OBJECT type="text/sitemap"><param name="Name" value="TestSolveQuad"><param name="Local" value="_headers_8h.html#a66d4915a2b88c79f8a3c5fbf72438f11"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="INF_ROOTS"><param name="Local" value="_headers_8h.html#a3a8fb162f354ec8bda5558af8f61874d"><param name="ImageNumber" value="11"></OBJECT>
       </UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="io.cpp"><param name="Local" value="io_8cpp.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="PrintAnswer"><param name="Local" value="io_8cpp.html#a6b7581894a8b7734c3552aee57bd8782"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="ReadCoeffs"><param name="Local" value="io_8cpp.html#aee7e8ec4833d53341f09285828c4ca6b"><param name="ImageNumber" value="11"></OBJECT>
+      </UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="main.cpp"><param name="Local" value="main_8cpp.html"><param name="ImageNumber" value="1"></OBJECT>
       <UL>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="_USE_TESTS_"><param name="Local" value="main_8cpp.html#a7b1ac14a872f4218680f027d92f2a9a3"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="main"><param name="Local" value="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4"><param name="ImageNumber" value="11"></OBJECT>
       </UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="Solve.cpp"><param name="Local" value="_solve_8cpp.html"><param name="ImageNumber" value="1"></OBJECT>
@@ -43,8 +47,6 @@
       <UL>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="DoubleCompare"><param name="Local" value="_util_functions_8cpp.html#a4a0cca6fa9929808535731416588566a"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="FlushInput"><param name="Local" value="_util_functions_8cpp.html#af760698300b1d9d04708ca26bafb52e6"><param name="ImageNumber" value="11"></OBJECT>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="PrintAnswer"><param name="Local" value="_util_functions_8cpp.html#a6b7581894a8b7734c3552aee57bd8782"><param name="ImageNumber" value="11"></OBJECT>
-      <LI><OBJECT type="text/sitemap"><param name="Name" value="ReadCoeffs"><param name="Local" value="_util_functions_8cpp.html#aee7e8ec4833d53341f09285828c4ca6b"><param name="ImageNumber" value="11"></OBJECT>
       </UL>
     </UL>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="Список членов всех файлов"><param name="Local" value="globals.html"><param name="ImageNumber" value="11"></OBJECT>
@@ -52,7 +54,6 @@
     <LI><OBJECT type="text/sitemap"><param name="Name" value="Указатель"><param name="Local" value="globals.html"><param name="ImageNumber" value="11"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="Функции"><param name="Local" value="globals_func.html"><param name="ImageNumber" value="11"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="Переменные"><param name="Local" value="globals_vars.html"><param name="ImageNumber" value="11"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Name" value="Макросы"><param name="Local" value="globals_defs.html"><param name="ImageNumber" value="11"></OBJECT>
     </UL>
   </UL>
 </UL>
