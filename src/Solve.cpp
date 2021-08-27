@@ -1,3 +1,9 @@
+#include <math.h>
+#include <assert.h>
+
+#include "Utilities.h"
+#include "Solve.h"
+
 //--------------------------------------------------------------------
 //! Solves a linear equation ax + b = 0
 //!

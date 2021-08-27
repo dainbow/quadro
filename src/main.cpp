@@ -1,17 +1,9 @@
 #include <stdio.h>
 #include <math.h>
-#include <float.h>
 #include <assert.h>
-#include <stdarg.h>
 
 #include "Solve.h"
 #include "Utilities.h"
-#include "Test.h"
-
-#include "Solve.cpp"
-#include "Utilities.cpp"
-#include "Test.cpp"
-
 
 void ReadCoeffs(double* a, double* b, double* c);
 void PrintAnswer(const int rootsCount, double* x1, double* x2);

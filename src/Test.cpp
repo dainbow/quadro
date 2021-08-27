@@ -1,3 +1,9 @@
+#include <stdio.h>
+#include <stdarg.h>
+
+#include "Utilities.h"
+#include "Solve.h"
+
 //--------------------------------------------------------------------
 //! Tests DoubleCompare function
 //!

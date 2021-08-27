@@ -1,3 +1,9 @@
+#include <math.h>
+#include <assert.h>
+#include <float.h>
+#include <stdio.h>
+#include "Utilities.h"
+
 //--------------------------------------------------------------------
 //! Compares 2 double numbers
 //!

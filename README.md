@@ -9,8 +9,8 @@ Download quadro.exe in \bin folder.
 - Install g++.
 - Open terminal in this folder
 ```
-$ g++ main.cpp Solve.cpp Solve.h Utilities.cpp Utilities.h Test.cpp Test.h -o Quadro
-$ ./Quadro"
+$ g++ main.cpp Solve.cpp Utilities.cpp Test.cpp -o Quadro
+$ ./Quadro
 ```
 ## Usage
 When program opens, enter 3 numbers separated by spaces.
