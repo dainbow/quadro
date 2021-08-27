@@ -11,6 +11,7 @@ Download quadro.exe in \bin folder.
 - Type "g++ main.cpp -o main.o"
 - "g++ funcs.cpp -o funcs.o"
 - "g++ main.o funcs.o -o Quadro"
+- "./Quadro"
 
 ## How can you use program?
 When program opens, input 3 numbers separated by space.
