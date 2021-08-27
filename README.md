@@ -1,10 +1,10 @@
 ## What this program can do?
 This program solves quadratic equation
 
-##### How can you run program?
-## For Windows users:
+## How can you run program?
+##### For Windows users:
 Download quadro.exe in \bin folder.
-## For Linux users
+##### For Linux users
 - Place main.cpp, globals.h, funcs.cpp in one folder. 
 - Install g++.
 - Open terminal in this folder
