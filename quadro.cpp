@@ -5,29 +5,32 @@
 #include <stdarg.h>
 
 const int INF_ROOTS = -1;
-const double PRECISION = 0.0001;
 
-bool IsApproxZero(double num);
-void TestIsApproxZero(double num, bool correctAnswer);
-int SolveLinear(double a, double b, double* x1);
-void TestSolveLinear(double a, double b, int correctRootsCount, ...);
-int SolveQuad(double a, double b, double c, double* x1, double* x2);
-void TestSolveQuad(double a, double b, double c, int correctRootsCount, ...);
-void PrintAnswer(int rootsCount, double* x1, double* x2);
+bool DoubleCompare(const double num1, const double num2);
+void TestDoubleCompare(const double num1, const double num2, const bool correctAnswer);
+int SolveLinear(const double a, const double b, double* x1);
+void TestSolveLinear(const double a, const double b, const int correctRootsCount, ...);
+int SolveQuad(const double a, const double b, const double c, double* x1, double* x2);
+void TestSolveQuad(const double a, const double b, const double c, const int correctRootsCount, ...);
+void PrintAnswer(const int rootsCount, double* x1, double* x2);
 void FlushInput();
 void ReadCoeffs(double* a, double* b, double* c);
 void TestAll();
 
+#define _USE_TESTS_
+
 int main() {
+#ifdef _USE_TESTS_
     TestAll();
+#endif
 
     printf("Solve quadratic equation\n");
-    printf("Please enter coefficients of the equation in format \"a b c\" (3 numbers) \n");
+    printf("Please enter coefficients of the equation in format \"a b c\" (3 numbers)\n");
 
-    double a = 0, b = 0, c = 0;
+    double a = NAN, b = NAN, c = NAN;
     ReadCoeffs(&a, &b, &c);
 
-    double x1 = 0, x2 = 0;
+    double x1 = NAN, x2 = NAN;
     int rootsCount = SolveQuad(a, b, c, &x1, &x2);
 
     PrintAnswer(rootsCount, &x1, &x2);
@@ -36,35 +39,34 @@ int main() {
 }
 
 //--------------------------------------------------------------------
-//! Checks if some number is near zero
+//! Compares 2 double numbers
 //!
-//! @param [in] num Number which will be checked
+//! @param [in] num1 1st number which will be checked
+//! @param [in] num2 2nd number which will be checked
 //!
-//! @return 1 if number is near zero, 0 if isn't
-//!
-//! @note You can change presicion const in the beginning of file
-//!       if you think it's too low or too big
+//! @return 1 if numbers are equal, 0 if isn't.
 //--------------------------------------------------------------------
 
-bool IsApproxZero(double num) {
-    assert(isfinite(num));
+bool DoubleCompare(const double num1, const double num2) {
+    assert(isfinite(num1));
+    assert(isfinite(num2));
 
-    return -PRECISION <= num && num <= PRECISION;
+    return fabs(num1 - num2) <= DBL_EPSILON;
 }
 
 //--------------------------------------------------------------------
-//! Tests IsApproxZero function
+//! Tests DoubleCompare function
 //!
-//! @param [in] num "num" parameter of IsApproxZero function
-//! @param [in] correctAnswer correct return of IsApproxZero(num)
+//! @param [in] num1 "num1" parameter of DoubleCompare function
+//! @param [in] num2 "num2" parameter of DoubleCompare function
+//! @param [in] correctAnswer correct return of DoubleCompare(num1,num2)
 //--------------------------------------------------------------------
 
-void TestIsApproxZero(double num, bool correctAnswer) {
-    bool answer = IsApproxZero(num);
-    const char* isTestOk = nullptr;
+void TestDoubleCompare(const double num1, const double num2, const bool correctAnswer) {
+    bool answer = DoubleCompare(num1, num2);
+    const char* isTestOk = (answer == correctAnswer) ? "correct" : "wrong";
 
-    isTestOk = (answer == correctAnswer) ? "correct" : "wrong";
-    printf("[%s] IsApproxZero(%lf) = %d, expected %d\n", isTestOk, num, answer, correctAnswer);
+    printf("[%s] IsApproxZero(%lf,%lf) = %d, expected %d\n", isTestOk, num1, num2, answer, correctAnswer);
 }
 
 //--------------------------------------------------------------------
@@ -80,17 +82,19 @@ void TestIsApproxZero(double num, bool correctAnswer) {
 //!       return INF_ROOTS
 //--------------------------------------------------------------------
 
-int SolveLinear(double a, double b, double* x1) {
+int SolveLinear(const double a, const double b, double* x1) {
     assert(isfinite(a));
     assert(isfinite(b));
 
     assert(x1 != nullptr);
 
-    if (IsApproxZero(a)) {
-        return IsApproxZero(b) ? INF_ROOTS : 0;
+    if (DoubleCompare(a, 0)) {
+        return DoubleCompare(b, 0) ? INF_ROOTS : 0;
     }
 
-    *x1 = -b/a;
+    double localX = -b/a;
+    *x1 = DoubleCompare(localX, -0) ? 0 : localX;
+
     return 1;
 }
 
@@ -99,15 +103,13 @@ int SolveLinear(double a, double b, double* x1) {
 //!
 //! @param [in] a "a" parameter of SolveLinear function
 //! @param [in] b "b" parameter of SolveLinear function
-//! @param [out] x1 pointer to the root (if it exists)
 //! @param [in] correctRootsCount correct count of roots of equation
 //! @param [in] correctX1 correct 1st root
 //--------------------------------------------------------------------
 
-void TestSolveLinear(double a, double b, int correctRootsCount, ...) {
+void TestSolveLinear(const double a, const double b, int correctRootsCount, ...) {
     double x1 = 0;
     int rootsCount = SolveLinear(a, b, &x1);
-
     switch (correctRootsCount) {
         case 1: {
             va_list args;
@@ -116,20 +118,21 @@ void TestSolveLinear(double a, double b, int correctRootsCount, ...) {
             double correctX1 = va_arg(args, double);
             va_end(args);
 
-            const char* isTestOk = (rootsCount == correctRootsCount && x1 == correctX1) ? "correct" : "wrong";
+            const char* isTestOk = (DoubleCompare(rootsCount, correctRootsCount) && DoubleCompare(x1, correctX1)) ? "correct" : "wrong";
 
             printf("[%s] SolveLinear(%lf, %lf) = %d; x1 = %lf, expected %d; x1 = %g\n", isTestOk, a, b, rootsCount, x1, correctRootsCount, correctX1);
             break;
         }
         case 0:
         case INF_ROOTS: {
-            const char* isTestOk = (rootsCount == correctRootsCount) ? "correct" : "wrong";
+            const char* isTestOk = DoubleCompare(rootsCount, correctRootsCount) ? "correct" : "wrong";
 
             printf("[%s] SolveLinear(%lf, %lf) = %d, expected %d\n", isTestOk, a, b, rootsCount, correctRootsCount);
+            break;
         }
+        default:
+            printf("Invalid correctRootsCount\n");
     }
-
-
 }
 
 //--------------------------------------------------------------------
@@ -147,7 +150,7 @@ void TestSolveLinear(double a, double b, int correctRootsCount, ...) {
 //!       return INF_ROOTS
 //--------------------------------------------------------------------
 
-int SolveQuad(double a, double b, double c, double* x1, double* x2) {
+int SolveQuad(const double a, const double b, const double c, double* x1, double* x2) {
     assert(isfinite(a));
     assert(isfinite(b));
     assert(isfinite(c));
@@ -156,18 +159,30 @@ int SolveQuad(double a, double b, double c, double* x1, double* x2) {
     assert(x2 != nullptr);
     assert(x1 != x2);
 
-    if (!IsApproxZero(a)) {
+    if (!DoubleCompare(a, 0)) {
         double d = b*b - 4*a*c;
+        double twiceA = 2*a;
+        if (DoubleCompare(c, 0)) {
+            *x1 = 0;
+            if (!DoubleCompare(b, 0)) {
+                SolveLinear(a, b, x2);
 
-        if (IsApproxZero(d)) {
-            *x1 = (-b)/(2*a);
+                return 2;
+            }
+
+            return 1;
+        }
+
+        if (DoubleCompare(d, 0)) {
+            *x1 = (-b)/(twiceA);
 
             return 1;
         }
         else if (d > 0) {
             d = sqrt(d);
-            *x1 = (-b + d)/(2*a);
-            *x2 = (-b - d)/(2*a);
+
+            *x1 = (-b + d)/(twiceA);
+            *x2 = (-b - d)/(twiceA);
 
             return 2;
         }
@@ -184,16 +199,13 @@ int SolveQuad(double a, double b, double c, double* x1, double* x2) {
 //! @param [in] a "a" parameter of SolveQuad function
 //! @param [in] b "b" parameter of SolveQuad function
 //! @param [in] c "c" parameter of SolveQuad function
-//! @param [out] x1 pointer to the 1st root
-//! @param [out] x2 pointer to the 2nd root
 //! @param [in] correctRootsCount correct count of roots of equation
 //! @param [in] correctX1 correct 1st root
 //! @param [in] correctX2 correct 2nd root
 //--------------------------------------------------------------------
 
-void TestSolveQuad(double a, double b, double c, int correctRootsCount, ...) {
+void TestSolveQuad(const double a, const double b, const double c, const int correctRootsCount, ...) {
     double x1 = 0, x2 = 0;
-
     int rootsCount = SolveQuad(a, b, c, &x1, &x2);
 
     switch(correctRootsCount) {
@@ -205,7 +217,7 @@ void TestSolveQuad(double a, double b, double c, int correctRootsCount, ...) {
             double correctX2 = va_arg(args,double);
             va_end(args);
 
-            const char* isTestOk = (rootsCount == correctRootsCount && ((x1 == correctX1 && x2 == correctX2) || (x2 == correctX1 && x1 == correctX2))) ? "correct" : "wrong";
+            const char* isTestOk = (DoubleCompare(rootsCount, correctRootsCount) && ((DoubleCompare(x1, correctX1) && DoubleCompare(x2, correctX2)) || (DoubleCompare(x2, correctX1) && DoubleCompare(x1, correctX2)))) ? "correct" : "wrong";
             printf("[%s] SolveQuad(%lf, %lf, %lf) = %d; x1 = %lf; x2 = %lf, expected %d; x1 = %lf; x2 = %lf\n", isTestOk, a, b, c, rootsCount, x1, x2, correctRootsCount, correctX1, correctX2);
             break;
         }
@@ -216,21 +228,20 @@ void TestSolveQuad(double a, double b, double c, int correctRootsCount, ...) {
             double correctX1 = va_arg(args,double);
             va_end(args);
 
-            const char* isTestOk = (rootsCount == correctRootsCount && x1 == correctX1 ) ? "correct" : "wrong";
+            const char* isTestOk = (DoubleCompare(rootsCount, correctRootsCount) && DoubleCompare(x1, correctX1)) ? "correct" : "wrong";
             printf("[%s] SolveQuad(%lf, %lf, %lf) = %d; x1 = %lf, expected %d; x1 = %lf\n", isTestOk, a, b, c, rootsCount, x1, correctRootsCount, correctX1);
             break;
         }
         case 0:
-        case INF_ROOTS:
-            const char* isTestOk = (rootsCount == correctRootsCount) ? "correct" : "wrong";
+        case INF_ROOTS: {
+            const char* isTestOk = DoubleCompare(rootsCount, correctRootsCount) ? "correct" : "wrong";
             printf("[%s] SolveQuad(%lf, %lf, %lf) = %d, expected %d\n", isTestOk, a, b, c, rootsCount, correctRootsCount);
-
-
-
-
+            break;
+        }
+        default: {
+            printf("Invalid correctRootsCount\n");
+        }
     }
-
-
 }
 
 //--------------------------------------------------------------------
@@ -244,7 +255,7 @@ void TestSolveQuad(double a, double b, double c, int correctRootsCount, ...) {
 //!       prints "Error"
 //--------------------------------------------------------------------
 
-void PrintAnswer(int rootsCount, double* x1, double* x2) {
+void PrintAnswer(const int rootsCount, double* x1, double* x2) {
     assert(isfinite(rootsCount));
 
     assert(x1 != nullptr);
@@ -266,7 +277,6 @@ void PrintAnswer(int rootsCount, double* x1, double* x2) {
             break;
         default:
             printf("Error\n");
-            break;
     }
 }
 
@@ -293,7 +303,9 @@ void ReadCoeffs(double* a, double* b, double* c) {
     assert(b != nullptr);
     assert(c != nullptr);
 
-    assert(a != b && a != c && b != c);
+    assert(a != b);
+    assert(a != c);
+    assert(b != c);
 
     while (scanf("%lf %lf %lf", a, b, c) != 3) {
         printf("Please enter coefficients of the equation in format \"a b c\" (3 numbers) \n");
@@ -304,18 +316,25 @@ void ReadCoeffs(double* a, double* b, double* c) {
 //--------------------------------------------------------------------
 //! Tests IsApproxZero, SolveLinear, SolveQuad functions
 //--------------------------------------------------------------------
+
 void TestAll() {
-    TestIsApproxZero(0.00001, true);
-    TestIsApproxZero(0, true);
-    TestIsApproxZero(0.001, false);
-    TestIsApproxZero(-1, false);
+    TestDoubleCompare(0.00001, 0, true);
+    TestDoubleCompare(0, 0, true);
+    TestDoubleCompare(0.001, 0, false);
+    TestDoubleCompare(-1, 0, false);
 
     TestSolveLinear(4, -6, 1, 1.5);
     TestSolveLinear(0, 0, INF_ROOTS);
     TestSolveLinear(0, 1, 0);
+    TestSolveLinear(1, 0, 1, 0.0);
 
+    TestSolveQuad(1, -9, 20, 2, 4.0, 5.0);
+    TestSolveQuad(0, 1, 0, 1, 0.0);
     TestSolveQuad(1, 3, 2.25, 1, -1.5);
     TestSolveQuad(1, -4, 3.75, 2, 1.5, 2.5);
-    TestSolveQuad(0, 0, 4, 0);
+    TestSolveQuad(1, 2, 0, 2, 0.0, -2.0);
+    TestSolveQuad(0, 0, 4, 0.0);
     TestSolveQuad(0, 0, 0, INF_ROOTS);
 }
+
+
