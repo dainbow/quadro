@@ -11,11 +11,15 @@ digraph "main.cpp"
   Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node4 [label="float.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="cassert",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node5 [label="assert.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node6 [label="stdarg.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node7 [label="globals.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$globals_8h.html",tooltip=" "];
+  Node7 [label="Headers.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_headers_8h.html",tooltip=" "];
   Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node8 [label="funcs.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$funcs_8cpp.html",tooltip=" "];
+  Node8 [label="Solve.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_solve_8cpp.html",tooltip=" "];
+  Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="UtilFunctions.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_util_functions_8cpp.html",tooltip=" "];
+  Node1 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="Test.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_test_8cpp.html",tooltip=" "];
 }

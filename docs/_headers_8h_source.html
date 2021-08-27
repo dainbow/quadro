@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Quadro: Исходный файл Headers.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Quadro
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.2 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Headers.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_headers_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef HEADER</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define HEADER 1</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="_headers_8h.html#a3a8fb162f354ec8bda5558af8f61874d">    3</a></span>    <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="_headers_8h.html#a3a8fb162f354ec8bda5558af8f61874d">INF_ROOTS</a> = -1;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="_headers_8h.html#a4a0cca6fa9929808535731416588566a">DoubleCompare</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> num1, <span class="keyword">const</span> <span class="keywordtype">double</span> num2);</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="_headers_8h.html#a75f5ed478cb34eb67ceca6d2c3c41dab">TestDoubleCompare</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> num1, <span class="keyword">const</span> <span class="keywordtype">double</span> num2, <span class="keyword">const</span> <span class="keywordtype">bool</span> correctAnswer);</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="_headers_8h.html#acc9aedafa94c0518a0af65ebc3240fb8">SolveLinear</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> a, <span class="keyword">const</span> <span class="keywordtype">double</span> b, <span class="keywordtype">double</span>* x1);</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="_headers_8h.html#ae9c6577c34ca9d03bd4b21da8a0d298f">TestSolveLinear</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> a, <span class="keyword">const</span> <span class="keywordtype">double</span> b, <span class="keyword">const</span> <span class="keywordtype">int</span> correctRootsCount, ...);</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="_headers_8h.html#a822d8c58f0396415fad5086f5c80c15f">SolveQuad</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> a, <span class="keyword">const</span> <span class="keywordtype">double</span> b, <span class="keyword">const</span> <span class="keywordtype">double</span> c, <span class="keywordtype">double</span>* x1, <span class="keywordtype">double</span>* x2);</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="_headers_8h.html#a66d4915a2b88c79f8a3c5fbf72438f11">TestSolveQuad</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> a, <span class="keyword">const</span> <span class="keywordtype">double</span> b, <span class="keyword">const</span> <span class="keywordtype">double</span> c, <span class="keyword">const</span> <span class="keywordtype">int</span> correctRootsCount, ...);</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="_headers_8h.html#a6b7581894a8b7734c3552aee57bd8782">PrintAnswer</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> rootsCount, <span class="keywordtype">double</span>* x1, <span class="keywordtype">double</span>* x2);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="_headers_8h.html#af760698300b1d9d04708ca26bafb52e6">FlushInput</a>();</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="_headers_8h.html#aee7e8ec4833d53341f09285828c4ca6b">ReadCoeffs</a>(<span class="keywordtype">double</span>* a, <span class="keywordtype">double</span>* b, <span class="keywordtype">double</span>* c);</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="_headers_8h.html#ae380476255b6b9195c35ca5dbc6f3807">TestAll</a>();</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a_headers_8h_html_a3a8fb162f354ec8bda5558af8f61874d"><div class="ttname"><a href="_headers_8h.html#a3a8fb162f354ec8bda5558af8f61874d">INF_ROOTS</a></div><div class="ttdeci">const int INF_ROOTS</div><div class="ttdef"><b>Definition:</b> Headers.h:3</div></div>
+<div class="ttc" id="a_headers_8h_html_a4a0cca6fa9929808535731416588566a"><div class="ttname"><a href="_headers_8h.html#a4a0cca6fa9929808535731416588566a">DoubleCompare</a></div><div class="ttdeci">bool DoubleCompare(const double num1, const double num2)</div><div class="ttdef"><b>Definition:</b> UtilFunctions.cpp:10</div></div>
+<div class="ttc" id="a_headers_8h_html_a66d4915a2b88c79f8a3c5fbf72438f11"><div class="ttname"><a href="_headers_8h.html#a66d4915a2b88c79f8a3c5fbf72438f11">TestSolveQuad</a></div><div class="ttdeci">void TestSolveQuad(const double a, const double b, const double c, const int correctRootsCount,...)</div><div class="ttdef"><b>Definition:</b> Test.cpp:72</div></div>
+<div class="ttc" id="a_headers_8h_html_a6b7581894a8b7734c3552aee57bd8782"><div class="ttname"><a href="_headers_8h.html#a6b7581894a8b7734c3552aee57bd8782">PrintAnswer</a></div><div class="ttdeci">void PrintAnswer(const int rootsCount, double *x1, double *x2)</div><div class="ttdef"><b>Definition:</b> UtilFunctions.cpp:28</div></div>
+<div class="ttc" id="a_headers_8h_html_a75f5ed478cb34eb67ceca6d2c3c41dab"><div class="ttname"><a href="_headers_8h.html#a75f5ed478cb34eb67ceca6d2c3c41dab">TestDoubleCompare</a></div><div class="ttdeci">void TestDoubleCompare(const double num1, const double num2, const bool correctAnswer)</div><div class="ttdef"><b>Definition:</b> Test.cpp:9</div></div>
+<div class="ttc" id="a_headers_8h_html_a822d8c58f0396415fad5086f5c80c15f"><div class="ttname"><a href="_headers_8h.html#a822d8c58f0396415fad5086f5c80c15f">SolveQuad</a></div><div class="ttdeci">int SolveQuad(const double a, const double b, const double c, double *x1, double *x2)</div><div class="ttdef"><b>Definition:</b> Solve.cpp:46</div></div>
+<div class="ttc" id="a_headers_8h_html_acc9aedafa94c0518a0af65ebc3240fb8"><div class="ttname"><a href="_headers_8h.html#acc9aedafa94c0518a0af65ebc3240fb8">SolveLinear</a></div><div class="ttdeci">int SolveLinear(const double a, const double b, double *x1)</div><div class="ttdef"><b>Definition:</b> Solve.cpp:14</div></div>
+<div class="ttc" id="a_headers_8h_html_ae380476255b6b9195c35ca5dbc6f3807"><div class="ttname"><a href="_headers_8h.html#ae380476255b6b9195c35ca5dbc6f3807">TestAll</a></div><div class="ttdeci">void TestAll()</div><div class="ttdoc">Tests IsApproxZero, SolveLinear, SolveQuad functions.</div><div class="ttdef"><b>Definition:</b> Test.cpp:117</div></div>
+<div class="ttc" id="a_headers_8h_html_ae9c6577c34ca9d03bd4b21da8a0d298f"><div class="ttname"><a href="_headers_8h.html#ae9c6577c34ca9d03bd4b21da8a0d298f">TestSolveLinear</a></div><div class="ttdeci">void TestSolveLinear(const double a, const double b, const int correctRootsCount,...)</div><div class="ttdef"><b>Definition:</b> Test.cpp:28</div></div>
+<div class="ttc" id="a_headers_8h_html_aee7e8ec4833d53341f09285828c4ca6b"><div class="ttname"><a href="_headers_8h.html#aee7e8ec4833d53341f09285828c4ca6b">ReadCoeffs</a></div><div class="ttdeci">void ReadCoeffs(double *a, double *b, double *c)</div><div class="ttdef"><b>Definition:</b> UtilFunctions.cpp:72</div></div>
+<div class="ttc" id="a_headers_8h_html_af760698300b1d9d04708ca26bafb52e6"><div class="ttname"><a href="_headers_8h.html#af760698300b1d9d04708ca26bafb52e6">FlushInput</a></div><div class="ttdeci">void FlushInput()</div><div class="ttdoc">Clear stdin.</div><div class="ttdef"><b>Definition:</b> UtilFunctions.cpp:58</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Документация по Quadro. Последние изменения: Пт 27 Авг 2021 21:07:29. Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

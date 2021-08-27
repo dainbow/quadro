@@ -1,4 +1,5 @@
 #ifndef HEADER
+	#def HEADER 1
     const int INF_ROOTS = -1;
 
     bool DoubleCompare(const double num1, const double num2);

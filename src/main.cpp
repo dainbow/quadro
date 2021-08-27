@@ -3,8 +3,10 @@
 #include <float.h>
 #include <assert.h>
 #include <stdarg.h>
-#include "globals.h"
-#include "funcs.cpp"
+#include "Headers.h"
+#include "Solve.cpp"
+#include "UtilFunctions.cpp"
+#include "Test.cpp"
 
 
 int main() {

@@ -6,8 +6,8 @@ digraph "TestSolveLinear"
   rankdir="LR";
   Node1 [label="TestSolveLinear",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="DoubleCompare",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$funcs_8cpp.html#a4a0cca6fa9929808535731416588566a",tooltip=" "];
+  Node2 [label="DoubleCompare",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_util_functions_8cpp.html#a4a0cca6fa9929808535731416588566a",tooltip=" "];
   Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="SolveLinear",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$funcs_8cpp.html#acc9aedafa94c0518a0af65ebc3240fb8",tooltip=" "];
+  Node3 [label="SolveLinear",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_solve_8cpp.html#a96a7d6a5993fe11188cbf6525f8690c4",tooltip=" "];
   Node3 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
 }
