@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <float.h>
-#include <cassert>
+#include <assert.h>
 #include <stdarg.h>
 #include "globals.h"
 #include "funcs.cpp"
