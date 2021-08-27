@@ -1,7 +1,7 @@
 ## What this program can do?
 This program solves quadratic equation
 
-### How can you run program?
+##### How can you run program?
 ## For Windows users:
 Download quadro.exe in \bin folder.
 ## For Linux users
