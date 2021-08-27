@@ -11,3 +11,5 @@ When program opens, input 3 numbers separated by space.
 ## Example of program using.
 ![image](https://user-images.githubusercontent.com/26509840/131129805-5a31048a-fe95-42fd-8686-4d1709f44a64.png)
 
+## How can you edit my code?
+Please read index.html file in /doxygen. (Pay attention for funcs.cpp description)
