@@ -5,14 +5,12 @@ This program solves quadratic equation
 ## For Windows users:
 Download quadro.exe in \bin folder.
 ## For Linux users
-'''
 - Place main.cpp, globals.h, funcs.cpp in one folder. 
 - Install g++.
 - Open terminal in this folder
 - Type "g++ main.cpp -o main.o"
 - "g++ funcs.cpp -o funcs.o"
 - "g++ main.o funcs.o -o Quadro"
-'''
 
 ## How can you use program?
 When program opens, input 3 numbers separated by space.
