@@ -1,0 +1,59 @@
+[OPTIONS]
+Compiled file=../Quadro.chm
+Compatibility=1.1
+Full-text search=Yes
+Contents file=index.hhc
+Default Window=main
+Default topic=index.html
+Index file=index.hhk
+Language=0x419 Russian
+Title=Quadro
+
+[WINDOWS]
+main="Quadro","index.hhc","index.hhk","index.html","index.html",,,,,0x23520,,0x10387e,,,,,,,,0
+
+[FILES]
+files.html
+funcs_8cpp.html
+globals.html
+globals_8h.html
+globals_8h_source.html
+globals_defs.html
+globals_func.html
+globals_vars.html
+globe_8h.html
+globe_8h_source.html
+graph_legend.html
+index.html
+main_8cpp.html
+bc_s.png
+bdwn.png
+closed.png
+funcs_8cpp__dep__incl.png
+funcs_8cpp_a61f86e3b5b1c16db6844d20aab5736f1_cgraph.png
+funcs_8cpp_a66d4915a2b88c79f8a3c5fbf72438f11_cgraph.png
+funcs_8cpp_a75f5ed478cb34eb67ceca6d2c3c41dab_cgraph.png
+funcs_8cpp_a822d8c58f0396415fad5086f5c80c15f_cgraph.png
+funcs_8cpp_acc9aedafa94c0518a0af65ebc3240fb8_cgraph.png
+funcs_8cpp_ae380476255b6b9195c35ca5dbc6f3807_cgraph.png
+funcs_8cpp_aee7e8ec4833d53341f09285828c4ca6b_cgraph.png
+globals_8h__dep__incl.png
+globals_8h_a66d4915a2b88c79f8a3c5fbf72438f11_cgraph.png
+globals_8h_a75f5ed478cb34eb67ceca6d2c3c41dab_cgraph.png
+globals_8h_a822d8c58f0396415fad5086f5c80c15f_cgraph.png
+globals_8h_acc9aedafa94c0518a0af65ebc3240fb8_cgraph.png
+globals_8h_ae380476255b6b9195c35ca5dbc6f3807_cgraph.png
+globals_8h_ae9c6577c34ca9d03bd4b21da8a0d298f_cgraph.png
+globals_8h_aee7e8ec4833d53341f09285828c4ca6b_cgraph.png
+graph_legend.png
+main_8cpp__incl.png
+main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph.png
+nav_f.png
+nav_h.png
+open.png
+sync_off.png
+sync_on.png
+tab_a.png
+tab_b.png
+tab_h.png
+tab_s.png
