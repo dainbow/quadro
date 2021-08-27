@@ -27,7 +27,6 @@ int SolveLinear(const double a, const double b, double* x) {
     return 1;
 }
 
-
 //--------------------------------------------------------------------
 //! Solves a square equation ax2 + bx + c = 0
 //!
