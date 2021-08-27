@@ -151,9 +151,8 @@ int SolveQuad(const double a, const double b, const double c, double* x1, double
 
             return 2;
         }
-        else {
-            return 0;
-        }
+
+        return 0;
     }
     return SolveLinear(b, c, x1);
 }
