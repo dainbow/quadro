@@ -19,4 +19,4 @@ When program opens, enter 3 numbers separated by spaces.
 ![image](https://user-images.githubusercontent.com/26509840/131129805-5a31048a-fe95-42fd-8686-4d1709f44a64.png)
 
 ## Contribution
-Please read index.html file in /doxygen. (Pay attention for funcs.cpp description)
+Please read https://dainbow.github.io/quadro/
