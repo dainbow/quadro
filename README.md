@@ -1,23 +1,22 @@
-## What this program can do?
-This program solves quadratic equation
+## Quadro
+This program solves quadratic equations
 
-## How can you run program?
+## Installation
 ##### For Windows users:
 Download quadro.exe in \bin folder.
 ##### For Linux users:
-- Place main.cpp, globals.h, funcs.cpp in one folder. 
+- Place main.cpp, Headerss.h, funcs.cpp in one folder. 
 - Install g++.
 - Open terminal in this folder
-- Type "g++ main.cpp -o main.o"
-- "g++ funcs.cpp -o funcs.o"
-- "g++ main.o funcs.o -o Quadro"
-- "./Quadro"
-
-## How can you use program?
-When program opens, input 3 numbers separated by space.
+```
+$ g++ main.cpp Functions.cpp -o Quadro
+$ ./Quadro"
+```
+## Usage
+When program opens, enter 3 numbers separated by spaces.
 
 ## Example of program using.
 ![image](https://user-images.githubusercontent.com/26509840/131129805-5a31048a-fe95-42fd-8686-4d1709f44a64.png)
 
-## How can you edit my code?
+## Contribution
 Please read index.html file in /doxygen. (Pay attention for funcs.cpp description)
