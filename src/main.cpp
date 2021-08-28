@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <assert.h>
+#include <conio.h>
 
 #include "Solve.h"
 #include "Utilities.h"
@@ -24,7 +25,8 @@ int main() {
     int rootsCount = SolveQuad(a, b, c, &x1, &x2);
 
     PrintAnswer(rootsCount, &x1, &x2);
-
+	
+	getch();
     return 0;
 }
 
