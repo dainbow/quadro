@@ -4,6 +4,7 @@
 
 #include "Solve.h"
 #include "Utilities.h"
+#include "Test.h"
 
 void ReadCoeffs(double* a, double* b, double* c);
 void PrintAnswer(const int rootsCount, double* x1, double* x2);

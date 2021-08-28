@@ -3,6 +3,7 @@
 
 #include "Utilities.h"
 #include "Solve.h"
+#include "Test.h"
 
 //--------------------------------------------------------------------
 //! Tests DoubleCompare function
